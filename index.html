@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">##</span><br />
+				<span class="comments"># I do programming as a hobby.</span><br />
+				<span class="comments"># so I write code to celebrate Valentine's Day in coder's way.</span><br />
+				<span class="comments">##</span><br />
+				i = Boy(<span class="string">"Denul Senila"</span>);<br />
+				u = Girl(<span class="string">"Minduni Nuhansa"</span>);<br />
+				<span class="comments"># May 21, 2023, I met you on your brother’s birthday trip.</span><br />
+				i.meet(u)<br />
+				<span class="comments"># and since that day, my heart stopped with you.</span><br />
+				i.fell_in_love_with(u)<br />
+				<span class="comments"># In 2024, You became my girlfriend.</span><br />
+				u.accepted(i)<br />
+				<span class="comments"># Since then, we spent harmony happiness life every day.</span><br />
+				happy(u, i)<br />
+				<span class="comments"># We enjoy talking every day together.</span><br />
+				chat(u, i)<br />
+				<span class="comments"># We enjoy smiling together.</span><br />
+				smile(u, i)<br />
+				<span class="comments"># We enjoy family trips together.</span><br />
+				trip(u, i)<br />
+				<span class="comments"># You are the best, most mature girl I've ever met in my life.</span><br />
+				u.is_perfect()<br />
+				<span class="comments"># Sometimes I act like I don't care,</span><br />
+				<span class="comments"># but I think about you every single day.</span><br />
+				<span class="comments"># I dream of enjoying life with you, treasuring each day we are
+					together.</span><br />
+				u.in_harmony_with(i) <br />
+				i.in_harmony_with(u) <br />
+				<span class="comments"># You are the greatest love of my life.</span><br />
+				while <span class="keyword">True</span>:<br />
+				<span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br />
+				<span class="placeholder"></span><span class="placeholder"></span>u = everything<br />
+				<span class="placeholder"></span><span class="keyword">else</span>:<br />
+				<span class="placeholder"></span><span class="placeholder"></span>everything = u<br />
+				<span class="comments"># Waiting to marry you, we will be the happiest couple in the world.</span><br />
+				i.marry(u, in_the_future=<span class="keyword">True</span>)<br />
+				i.live_happily_forever_with(u)<br />
+				<span class="comments"># I love you forever.</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Chootyyy, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br />
+						<div class="signature">- Denul Senila | batman</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="music-control">
+			<audio id="bg-music">
+				<source
+					src="https://res.cloudinary.com/dzswbgixn/video/upload/v1770886299/ssstik.io_1770886250603_ppgmrc.mp3"
+					type="audio/mp3">
+			</audio>
+			<button id="music-btn" class="music-btn" style="display:none">
+				<svg class="icon-play" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 5v14l11-7z" />
+				</svg>
+				<svg class="icon-pause" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+				</svg>
+			</button>
+		</div>
+
+		<!-- New Scroll Trigger -->
+		<div id="scroll-trigger">
+			<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+			</svg>
+			<p>Yes, Touch it</p>
+		</div>
+
+		<!-- Lyrics Section -->
+		<div id="lyrics-section">
+			<div id="lyrics-container">
+				<!-- Lyrics will be injected here -->
+			</div>
+		</div>
+
+		<script>
+			// Music Player & Scroll Logic
+			const musicBtn = document.getElementById('music-btn');
+			const bgMusic = document.getElementById('bg-music');
+			const scrollTrigger = document.getElementById('scroll-trigger');
+			const lyricsSection = document.getElementById('lyrics-section');
+			const lyricsContainer = document.getElementById('lyrics-container');
+
+			// Raindance Lyrics (Approximate/Romantic interpretation)
+			const lyrics = [
+				"The day i met you",
+				"I had no idea\ that you would become everything to me",
+				"I didn't expect to find someone\ who would change my life\ so completely",
+				"With every day that passed",
+				"You became more than\ just person i loved",
+				"You became my reason",
+				"My hope",
+				"My light in the dark...",
+			];
+
+			function showLyrics() {
+				lyricsContainer.innerHTML = '';
+				lyrics.forEach((line, index) => {
+					const p = document.createElement('div');
+					p.className = 'lyric-line';
+					p.textContent = line;
+					lyricsContainer.appendChild(p);
+
+					// Staggered fade in
+					setTimeout(() => {
+						p.classList.add('visible');
+					}, index * 2000 + 500); // Appear every 2 seconds
+				});
+			}
+
+			function toggleMusic() {
+				if (bgMusic.paused) {
+					bgMusic.play();
+					musicBtn.classList.add('playing');
+				} else {
+					bgMusic.pause();
+					musicBtn.classList.remove('playing');
+				}
+			}
+
+			musicBtn.addEventListener('click', toggleMusic);
+
+			// Scroll Trigger Action
+			scrollTrigger.addEventListener('click', () => {
+				// Play music
+				if (bgMusic.paused) {
+					bgMusic.play().then(() => {
+						musicBtn.classList.add('playing');
+						musicBtn.style.display = 'flex'; // Show the music button now
+					}).catch(e => console.log("Audio play failed", e));
+				}
+
+				// Show and scroll to lyrics
+				lyricsSection.style.display = 'flex';
+				lyricsSection.scrollIntoView({ behavior: 'smooth' });
+
+				// Start lyrics animation
+				showLyrics();
+
+				// Hide trigger after use
+				scrollTrigger.style.display = 'none';
+			});
+
+			// Hook into Typewriter end (using jQuery for compatibility with existing code)
+			// We need to wait for the DOM to be fully ready and the typewriter to start
+			$(document).ready(function () {
+				// Show Scroll Trigger after 1 minute 39 seconds (99 seconds)
+				setTimeout(() => {
+					$('#scroll-trigger').fadeIn(1000);
+					console.log("Scroll Trigger shown after 99 seconds");
+				}, 99000); // 99 seconds = 99000 milliseconds
+
+				// Optional: still listen just to log completion
+				$('#code').on('typewriter:done', function () {
+					console.log("Typewriter complete");
+				});
+			});
+		</script>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+		together.setFullYear(2023, 4, 21);
+		together.setHours(15);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+
+	<script>
+		document.addEventListener('mousemove', (e) => {
+			const dot = document.createElement('div');
+			dot.style.cssText = `
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background: #bf00ff;
+        border-radius: 50%;
+        pointer-events: none;
+        left: ${e.clientX}px;
+        top: ${e.clientY}px;
+        animation: fadeDot 1s ease-out forwards;
+        z-index: 9999;
+    `;
+			document.body.appendChild(dot);
+			setTimeout(() => dot.remove(), 1000);
+		});
+
+		const style = document.createElement('style');
+		style.textContent = `
+    @keyframes fadeDot {
+        to { opacity: 0; transform: scale(2); }
+    }
+`;
+		document.head.appendChild(style);
+	</script>
+</body>
+
+</html>
